@@ -1,0 +1,6 @@
+name: DayCounter
+version: '1.0'
+main: de.greenman999.daycounter.DayCounter
+description: A customisable DayCounter only counting days, when a player is online.
+api-version: '1.19'
+author: Greenman999
