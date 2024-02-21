@@ -1,8 +1,6 @@
 package de.greenman999.daycounter;
 
 import de.greenman999.daycounter.commands.DayCounterCommand;
-import dev.jorel.commandapi.CommandAPI;
-import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
 import org.bukkit.Sound;
@@ -23,7 +21,6 @@ public class DayCounter extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        CommandAPI.onEnable();
         registerAllCommands();
         pluginManager.registerEvents(new DayCounterListener(this), this);
 
@@ -69,11 +66,6 @@ public class DayCounter extends JavaPlugin {
 
     public int getDayTicks() {
         return ((int) Bukkit.getWorlds().get(0).getFullTime()) % 24000;
-    }
-
-    @Override
-    public void onLoad() {
-        CommandAPI.onLoad(new CommandAPIBukkitConfig(this).verboseOutput(false).silentLogs(true));
     }
 
     public Messages getMessages() {

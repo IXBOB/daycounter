@@ -1,11 +1,10 @@
 plugins {
-    id("com.github.johnrengelman.shadow") version "7.1.2"
     id("java")
     id("xyz.jpenilla.run-paper") version "2.1.0"
 }
 
 group = "de.greenman999"
-version = "1.0.0"
+version = "1.2.0"
 
 repositories {
     mavenCentral()
@@ -14,16 +13,13 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.jorel:commandapi-bukkit-shade:9.0.1")
-    compileOnly("io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT")
+    compileOnly("dev.jorel:commandapi-bukkit-core:9.3.0")
+    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
 }
 
 tasks {
     runServer {
-        minecraftVersion("1.19.4")
-    }
-    shadowJar {
-        relocate("dev.jorel.commandapi", "de.greenman999.daycounter.deps.commandapi")
+        minecraftVersion("1.20.4")
     }
     processResources {
         inputs.property("version", project.version)
