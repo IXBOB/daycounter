@@ -24,9 +24,9 @@ public class DayCounter extends JavaPlugin {
         registerAllCommands();
         pluginManager.registerEvents(new DayCounterListener(this), this);
 
-        AtomicBoolean beforeDoDaylightCycle = new AtomicBoolean(Boolean.TRUE.equals(Bukkit.getWorlds().get(0).getGameRuleValue(GameRule.DO_DAYLIGHT_CYCLE)));
+        AtomicBoolean beforeDoDaylightCycle = new AtomicBoolean(Boolean.TRUE.equals(Bukkit.getWorlds().getFirst().getGameRuleValue(GameRule.DO_DAYLIGHT_CYCLE)));
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () -> {
+        Bukkit.getScheduler().runTaskTimer(this, () -> {
             if(getDayTicks() == 0) {
                 Bukkit.getOnlinePlayers().forEach(player -> {
                     messages.sendTitle(player);
@@ -61,11 +61,11 @@ public class DayCounter extends JavaPlugin {
     }
 
     public int getDayCount() {
-        return ((int) Bukkit.getWorlds().get(0).getFullTime()) / 24000;
+        return ((int) Bukkit.getWorlds().getFirst().getFullTime()) / 24000;
     }
 
     public int getDayTicks() {
-        return ((int) Bukkit.getWorlds().get(0).getFullTime()) % 24000;
+        return ((int) Bukkit.getWorlds().getFirst().getFullTime()) % 24000;
     }
 
     public Messages getMessages() {

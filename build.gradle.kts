@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "de.greenman999"
-version = "1.2.0"
+version = "1.2.1"
 
 repositories {
     mavenCentral()
@@ -13,13 +13,13 @@ repositories {
 }
 
 dependencies {
-    compileOnly("dev.jorel:commandapi-bukkit-core:9.3.0")
-    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+    compileOnly("dev.jorel:commandapi-bukkit-core:9.5.1")
+    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
 }
 
 tasks {
     runServer {
-        minecraftVersion("1.20.4")
+        minecraftVersion("1.21")
     }
     processResources {
         inputs.property("version", project.version)
@@ -34,5 +34,5 @@ tasks.withType<JavaCompile> {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(18))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
