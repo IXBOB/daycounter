@@ -27,7 +27,7 @@ public class DayCounter extends JavaPlugin {
         AtomicBoolean beforeDoDaylightCycle = new AtomicBoolean(Boolean.TRUE.equals(Bukkit.getWorlds().getFirst().getGameRuleValue(GameRule.DO_DAYLIGHT_CYCLE)));
 
         Bukkit.getScheduler().runTaskTimer(this, () -> {
-            if(getDayTicks() == 0) {
+            if(getDayTicks() == 1005) {
                 Bukkit.getOnlinePlayers().forEach(player -> {
                     messages.sendTitle(player);
                     messages.sendChat(player);

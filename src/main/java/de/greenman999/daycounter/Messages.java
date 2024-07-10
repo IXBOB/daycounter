@@ -29,7 +29,7 @@ public class Messages {
     public void sendChat(Player player) {
         plugin.playerConfigs.get(player.getUniqueId()).reload();
         if(!plugin.playerConfigs.get(player.getUniqueId()).shouldSendChat()) return;
-        player.sendMessage(Component.text("The sun is rising: ", NamedTextColor.GREEN).append(buildDayComponent(player)));
+        player.sendMessage(Component.text("新一天的太阳升起了: 第", NamedTextColor.GREEN).append(buildDayComponent(player)).append(Component.text("天")));
     }
 
     public Component buildDayComponent(Player player) {
